@@ -17,11 +17,24 @@ body {
   height: 100vh;
 }
 
-h1 {
+.searchPage {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: antiquewhite;
-  width: 100vw;
-  height: 5rem;
+  flex-direction: column;
+}
+
+.blogList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.blogPreview {
+  border: 1px solid lightblue;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 7px;
+}
+
+.previewImage {
+  width: 200px;
 }
