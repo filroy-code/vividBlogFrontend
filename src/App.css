@@ -43,6 +43,7 @@ body {
 
 .blogPostContent img {
   max-width: 90vw;
+  max-height: 60vh;
 }
 
 .blogPostContent p {

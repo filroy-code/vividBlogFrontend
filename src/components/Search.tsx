@@ -1,12 +1,10 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import useSWR from "swr";
-import { useNavigate } from "react-router-dom";
 import { IBlog } from "../types/blog";
-import { DateTime } from "luxon";
+import PreviewBox from "./PreviewBox";
 
 export default function Search(): JSX.Element {
-  const navigate = useNavigate();
   const [pageNumber, setPageNumber] = React.useState(0);
   const { data, error, isValidating, mutate } = useSWR(
     `http://localhost:4321/blogs/search/${pageNumber}`
@@ -17,29 +15,7 @@ export default function Search(): JSX.Element {
       <div className="blogList">
         {data &&
           data.blogList.map((datum: IBlog) => {
-            return (
-              <div
-                className="blogPreview"
-                key={datum.id}
-                onClick={() => {
-                  navigate(`/${datum.slug}`);
-                }}
-              >
-                <img
-                  className="previewImage"
-                  src={datum.image}
-                  alt={datum.title}
-                ></img>
-                <div className="previewText">
-                  <p>{datum.title}</p>
-                  <p>
-                    {DateTime.fromISO(`${datum.published_at}`).toLocaleString(
-                      DateTime.DATE_MED
-                    )}
-                  </p>
-                </div>
-              </div>
-            );
+            return <PreviewBox key={datum.id} blogData={datum} />;
           })}
       </div>
       <div className="buttonContainer">
