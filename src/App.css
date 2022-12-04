@@ -13,7 +13,7 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   height: 100vh;
 }
 
@@ -36,5 +36,7 @@ body {
 }
 
 .previewImage {
-  width: 200px;
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
 }

@@ -9,7 +9,7 @@ export default function Search(): JSX.Element {
   const navigate = useNavigate();
   const [pageNumber, setPageNumber] = React.useState(0);
   const { data, error, isValidating, mutate } = useSWR(
-    `http://localhost:4321/blogs/${pageNumber}`
+    `http://localhost:4321/blogs/search/${pageNumber}`
   );
 
   return (

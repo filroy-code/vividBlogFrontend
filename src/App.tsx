@@ -4,6 +4,7 @@ import Search from "./components/Search";
 import { SWRConfig } from "swr";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Blog from "./components/Blog";
+import Header from "./components/Header";
 
 function App() {
   const fetcher = (...args: any) =>
@@ -13,9 +14,10 @@ function App() {
     <SWRConfig value={{ fetcher }}>
       <div className="App">
         <BrowserRouter>
+          <Header></Header>
           <Routes>
             <Route path="/" element={<Search />}></Route>
-            <Route path="/:blogSlug" element={<Blog />}></Route>
+            <Route path="/:slug" element={<Blog />}></Route>
           </Routes>
         </BrowserRouter>
       </div>
