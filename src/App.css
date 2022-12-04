@@ -11,10 +11,10 @@ body {
 .App {
   width: 100vw;
   margin: 0;
-  padding: 0;
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  overflow-x: hidden;
 }
 
 .searchPage {
@@ -39,4 +39,12 @@ body {
   object-fit: cover;
   height: 200px;
   width: 100%;
+}
+
+.blogPostContent img {
+  max-width: 90vw;
+}
+
+.blogPostContent p {
+  max-width: 90vw;
 }
