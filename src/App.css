@@ -20,19 +20,26 @@ body {
 .searchPage {
   display: flex;
   flex-direction: column;
+  width: 90%;
 }
 
 .blogList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
 }
 
 .blogPreview {
   border: 1px solid lightblue;
   border-radius: 5px;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   padding: 7px;
+}
+
+.blogPreview:hover {
+  background-color: antiquewhite;
 }
 
 .previewImage {
@@ -48,4 +55,16 @@ body {
 
 .blogPostContent p {
   max-width: 90vw;
+}
+
+@media screen and (max-width: 985px) {
+  .blogList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 641px) {
+  .blogList {
+    grid-template-columns: 1fr;
+  }
 }

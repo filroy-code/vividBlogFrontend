@@ -10,11 +10,13 @@ export default function PreviewBox(props: { blogData: IBlog }) {
       className="blogPreview"
       key={props.blogData.id}
     >
-      <img
-        className="previewImage"
-        src={props.blogData.image}
-        alt={props.blogData.title}
-      ></img>
+      <div className="imageContainer">
+        <img
+          className="previewImage"
+          src={props.blogData.image}
+          alt={props.blogData.title}
+        ></img>
+      </div>
       <div className="previewText">
         <h4>{props.blogData.title}</h4>
         <p>
