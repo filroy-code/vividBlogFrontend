@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import useSWR from "swr";
 import { useNavigate } from "react-router-dom";
 import { IBlog } from "../types/blog";
+import { DateTime } from "luxon";
 
 export default function Search(): JSX.Element {
   const navigate = useNavigate();
@@ -29,7 +30,14 @@ export default function Search(): JSX.Element {
                   src={datum.image}
                   alt={datum.title}
                 ></img>
-                {datum.title}
+                <div className="previewText">
+                  <p>{datum.title}</p>
+                  <p>
+                    {DateTime.fromISO(`${datum.published_at}`).toLocaleString(
+                      DateTime.DATE_MED
+                    )}
+                  </p>
+                </div>
               </div>
             );
           })}

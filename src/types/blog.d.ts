@@ -4,5 +4,5 @@ export interface IBlog {
   slug: string;
   content: string;
   image: string;
-  published_at: Date | null;
+  published_at: Date;
 }
