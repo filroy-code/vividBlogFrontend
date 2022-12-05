@@ -8,9 +8,15 @@ import SearchLoadingSkeleton from "./SearchLoadingSkeleton";
 
 export default function Search(): JSX.Element {
   const [pageNumber, setPageNumber] = React.useState(0);
-  const { data, error, isValidating, mutate } = useSWR(
-    `http://localhost:4321/blogs/search/${pageNumber}`
-  );
+  const { data } = useSWR(`http://localhost:4321/blogs/search/${pageNumber}`);
+
+  const [blogCount, setBlogCount] = React.useState<number | null>(null);
+
+  React.useEffect(() => {
+    if (data && data.blogCount) {
+      setBlogCount(parseInt(data.blogCount[0].count));
+    }
+  }, [data]);
 
   return (
     <div className="searchPage">
@@ -23,7 +29,12 @@ export default function Search(): JSX.Element {
       ) : (
         <SearchLoadingSkeleton />
       )}
-      <PaginationButtons setPageNumber={setPageNumber} />
+      {blogCount && (
+        <PaginationButtons
+          setPageNumber={setPageNumber}
+          blogCount={blogCount}
+        />
+      )}
     </div>
   );
 }

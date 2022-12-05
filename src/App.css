@@ -1,6 +1,7 @@
 html {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
@@ -14,7 +15,6 @@ body {
   padding: 15px;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
 }
 
 header img {
@@ -40,7 +40,7 @@ header img:hover {
 }
 
 .blogPreview {
-  border: 1px solid lightblue;
+  border: 1px solid black;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
@@ -54,7 +54,7 @@ header img:hover {
   background-color: antiquewhite;
 }
 
-.buttonContainer {
+.paginationContainer {
   width: 100%;
   display: flex;
   justify-content: center;
