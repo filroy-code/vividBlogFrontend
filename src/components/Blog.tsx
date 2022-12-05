@@ -1,12 +1,10 @@
 import React from "react";
 import useSWR from "swr";
 import { useParams } from "react-router-dom";
+import { EnvironmentContext } from "../contexts/EnvironmentContext";
 
 export default function Blog(): JSX.Element {
-  const backendURL =
-    process.env.REACT_APP_ENVIRONMENT === "production"
-      ? process.env.REACT_APP_PRODUCTION_BACKEND
-      : "http://localhost:4321";
+  const backendURL = React.useContext(EnvironmentContext);
 
   type Params = {
     slug: string;

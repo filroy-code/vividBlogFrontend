@@ -6,23 +6,31 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import Blog from "./components/Blog";
 import Header from "./components/Header";
+import { EnvironmentContext } from "./contexts/EnvironmentContext";
 
 function App() {
   const fetcher = (...args: any) =>
     fetch(args).then((response) => response.json());
 
+  const backendURL =
+    process.env.REACT_APP_ENVIRONMENT === "production"
+      ? process.env.REACT_APP_PRODUCTION_BACKEND
+      : "http://localhost:4321";
+
   return (
     <SWRConfig value={{ fetcher }}>
-      <div className="App">
-        <BrowserRouter>
-          <Header></Header>
-          <Divider style={{ marginBottom: "10px", maxWidth: "90vw" }} />
-          <Routes>
-            <Route path="/" element={<Search />}></Route>
-            <Route path="/:slug" element={<Blog />}></Route>
-          </Routes>
-        </BrowserRouter>
-      </div>
+      <EnvironmentContext.Provider value={backendURL}>
+        <div className="App">
+          <BrowserRouter>
+            <Header></Header>
+            <Divider style={{ marginBottom: "10px", maxWidth: "90vw" }} />
+            <Routes>
+              <Route path="/" element={<Search />}></Route>
+              <Route path="/:slug" element={<Blog />}></Route>
+            </Routes>
+          </BrowserRouter>
+        </div>
+      </EnvironmentContext.Provider>
     </SWRConfig>
   );
 }
