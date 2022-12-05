@@ -14,12 +14,11 @@ export default function Blog(): JSX.Element {
 
   const contentRef = React.useRef<HTMLDivElement>(null);
 
-  if (data) {
-    console.log(data);
-    if (contentRef.current != null) {
+  React.useEffect(() => {
+    if (contentRef.current != null && data != null) {
       contentRef.current.innerHTML = data.blogPost[0].content;
     }
-  }
+  }, [data]);
 
   return (
     data && (
