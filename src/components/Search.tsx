@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "@mui/material/Button";
 import useSWR from "swr";
 import { IBlog } from "../types/blog";
 import PreviewBox from "./PreviewBox";
@@ -7,8 +6,13 @@ import PaginationButtons from "./PaginationButtons";
 import SearchLoadingSkeleton from "./SearchLoadingSkeleton";
 
 export default function Search(): JSX.Element {
+  const backendURL =
+    process.env.REACT_APP_ENVIRONMENT === "production"
+      ? process.env.REACT_APP_PRODUCTION_BACKEND
+      : "http://localhost:4321";
+
   const [pageNumber, setPageNumber] = React.useState(0);
-  const { data } = useSWR(`http://localhost:4321/blogs/search/${pageNumber}`);
+  const { data } = useSWR(`${backendURL}/blogs/search/${pageNumber}`);
 
   const [blogCount, setBlogCount] = React.useState<number | null>(null);
 

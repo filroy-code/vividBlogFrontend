@@ -3,7 +3,7 @@ import { IBlog } from "../types/blog";
 import { Link } from "react-router-dom";
 import { DateTime } from "luxon";
 
-export default function PreviewBox(props: { blogData: IBlog }) {
+export default function PreviewBox(props: { blogData: IBlog }): JSX.Element {
   return (
     <Link
       to={props.blogData.slug}
