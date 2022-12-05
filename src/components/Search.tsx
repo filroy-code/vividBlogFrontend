@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import useSWR from "swr";
 import { IBlog } from "../types/blog";
 import PreviewBox from "./PreviewBox";
+import PaginationButtons from "./PaginationButtons";
 
 export default function Search(): JSX.Element {
   const [pageNumber, setPageNumber] = React.useState(0);
@@ -18,22 +19,7 @@ export default function Search(): JSX.Element {
             return <PreviewBox key={datum.id} blogData={datum} />;
           })}
       </div>
-      <div className="buttonContainer">
-        <Button
-          onClick={() => {
-            setPageNumber((prev) => prev + 1);
-          }}
-        >
-          Next
-        </Button>
-        <Button
-          onClick={() => {
-            setPageNumber((prev) => prev - 1);
-          }}
-        >
-          Previous
-        </Button>
-      </div>
+      <PaginationButtons setPageNumber={setPageNumber} />
     </div>
   );
 }

@@ -54,6 +54,12 @@ header img:hover {
   background-color: antiquewhite;
 }
 
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .previewImage {
   object-fit: cover;
   height: 200px;
