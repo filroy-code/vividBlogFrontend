@@ -17,6 +17,16 @@ body {
   overflow-x: hidden;
 }
 
+header img {
+  height: 5rem;
+  margin-bottom: 3px;
+  transition: 0.4s;
+}
+
+header img:hover {
+  transform: scale(1.04);
+}
+
 .searchPage {
   display: flex;
   flex-direction: column;
@@ -36,6 +46,8 @@ body {
   justify-content: space-between;
   flex-direction: column;
   padding: 7px;
+  text-decoration: none;
+  color: black;
 }
 
 .blogPreview:hover {
