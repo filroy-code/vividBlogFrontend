@@ -2,6 +2,7 @@ import React from "react";
 import useSWR from "swr";
 import { useParams } from "react-router-dom";
 import { EnvironmentContext } from "../contexts/EnvironmentContext";
+import ReturnToBrowse from "./ReturnToBrowse";
 
 export default function Blog(): JSX.Element {
   const backendURL = React.useContext(EnvironmentContext);
@@ -24,6 +25,7 @@ export default function Blog(): JSX.Element {
   return (
     data && (
       <div>
+        <ReturnToBrowse></ReturnToBrowse>
         <div className="blogPostContent" ref={contentRef}></div>
       </div>
     )

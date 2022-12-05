@@ -76,6 +76,17 @@ header img:hover {
   max-width: 90vw;
 }
 
+.returnToBrowseContainer {
+  display: flex;
+  width: 10rem;
+  align-items: center;
+  color: black;
+  padding: 7px;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 985px) {
   .blogList {
     grid-template-columns: 1fr 1fr;

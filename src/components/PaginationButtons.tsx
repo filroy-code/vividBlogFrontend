@@ -2,17 +2,20 @@ import React from "react";
 import Pagination from "@mui/material/Pagination";
 
 export default function PaginationButtons(props: {
+  pageNumber: number;
   setPageNumber: any;
   blogCount: number;
 }): JSX.Element {
+  const { blogCount, pageNumber, setPageNumber } = props;
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-    props.setPageNumber(value - 1);
+    setPageNumber(value - 1);
   };
   return (
     <Pagination
       className="paginationContainer"
       onChange={handleChange}
-      count={Math.ceil(props.blogCount / 6)}
+      count={Math.ceil(blogCount / 6)}
+      page={pageNumber + 1}
     />
   );
 }

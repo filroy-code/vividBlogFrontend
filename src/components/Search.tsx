@@ -6,9 +6,12 @@ import PaginationButtons from "./PaginationButtons";
 import SearchLoadingSkeleton from "./SearchLoadingSkeleton";
 import { EnvironmentContext } from "../contexts/EnvironmentContext";
 
-export default function Search(): JSX.Element {
+export default function Search(props: {
+  pageNumber: number;
+  setPageNumber: any;
+}): JSX.Element {
+  const { pageNumber, setPageNumber } = props;
   const backendURL = React.useContext(EnvironmentContext);
-  const [pageNumber, setPageNumber] = React.useState(0);
   const { data } = useSWR(`${backendURL}/blogs/search/${pageNumber}`);
 
   const [blogCount, setBlogCount] = React.useState<number | null>(null);
@@ -32,6 +35,7 @@ export default function Search(): JSX.Element {
       )}
       {blogCount && (
         <PaginationButtons
+          pageNumber={pageNumber}
           setPageNumber={setPageNumber}
           blogCount={blogCount}
         />

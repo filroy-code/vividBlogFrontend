@@ -17,15 +17,25 @@ function App() {
       ? process.env.REACT_APP_PRODUCTION_BACKEND
       : "http://localhost:4321";
 
+  const [pageNumber, setPageNumber] = React.useState<number>(0);
+
   return (
     <SWRConfig value={{ fetcher }}>
       <EnvironmentContext.Provider value={backendURL}>
         <div className="App">
           <BrowserRouter>
-            <Header></Header>
+            <Header setPageNumber={setPageNumber}></Header>
             <Divider style={{ marginBottom: "10px", maxWidth: "90vw" }} />
             <Routes>
-              <Route path="/" element={<Search />}></Route>
+              <Route
+                path="/"
+                element={
+                  <Search
+                    pageNumber={pageNumber}
+                    setPageNumber={setPageNumber}
+                  />
+                }
+              ></Route>
               <Route path="/:slug" element={<Blog />}></Route>
             </Routes>
           </BrowserRouter>
