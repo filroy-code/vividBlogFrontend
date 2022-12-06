@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export default function ReturnToBrowse() {
+export default function ReturnToBrowse(): JSX.Element {
   const navigate = useNavigate();
 
   return (

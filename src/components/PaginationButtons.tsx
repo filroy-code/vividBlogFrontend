@@ -3,7 +3,7 @@ import Pagination from "@mui/material/Pagination";
 
 export default function PaginationButtons(props: {
   pageNumber: number;
-  setPageNumber: any;
+  setPageNumber: Function;
   blogCount: number;
 }): JSX.Element {
   const { blogCount, pageNumber, setPageNumber } = props;

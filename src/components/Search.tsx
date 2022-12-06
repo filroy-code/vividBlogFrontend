@@ -31,7 +31,7 @@ export default function Search(props: {
           })}
         </div>
       ) : (
-        <SearchLoadingSkeleton />
+        <SearchLoadingSkeleton boxesToRender={6} />
       )}
       {blogCount && (
         <PaginationButtons
