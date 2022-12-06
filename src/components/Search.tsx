@@ -8,7 +8,7 @@ import { EnvironmentContext } from "../contexts/EnvironmentContext";
 
 export default function Search(props: {
   pageNumber: number;
-  setPageNumber: any;
+  setPageNumber: Function;
 }): JSX.Element {
   const { pageNumber, setPageNumber } = props;
   const backendURL = React.useContext(EnvironmentContext);
